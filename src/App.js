@@ -1,10 +1,13 @@
 import axios from 'axios';
 
 import React, { Component } from 'react';
-import {
-  Card, CardImg, CardText, CardBody,
-  CardTitle, CardSubtitle, Button
-} from 'reactstrap';
+
+
+
+import { Card , CardText, CardBody,
+  CardTitle, CardSubtitle,Row, Col, Button } from 'reactstrap'
+
+
 
 import Ticket from './ticket'
 
@@ -31,11 +34,11 @@ class App extends Component {
   //<Ticket title="todo.title" status='todo.completed'></Ticket>
 
  render() {
-
+    
   return (
-     <div className="Container" style={{display: 'flex', flexDirection: 'row'}}>
-      <div className="col-xs-12">
-      <h1>My Todos</h1>
+     <div className="container" >
+     
+     <Row>
       {this.state.todos.map((todo) => (
 
         <Ticket title={todo.title} status= {getStatus(todo.completed)} ></Ticket>
@@ -43,7 +46,7 @@ class App extends Component {
                 
       ))}
       
-      </div>
+      </Row>
      </div>
   );
 }

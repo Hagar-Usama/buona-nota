@@ -24,17 +24,19 @@ export default class Ticket extends React.Component{
     return(
     
 
-   
+      <Col sm="3">
         <Card className = "Ticket" >
             <CardBody>
               <CardTitle>{this.props.title}</CardTitle>
               <CardSubtitle>{this.props.status}</CardSubtitle>
-              <Button color='primary'>Edit</Button>
+              <Button  color='primary'>Edit</Button>
               &nbsp;
               <Button color='danger'>Delete</Button>
             </CardBody>
-
+      
       </Card>
+      &nbsp;
+      </Col>
 
   
     
