@@ -14,11 +14,12 @@ class App extends Component {
 
   constructor(props){
     super(props);
-    this.state = {todos: []};
+    this.state = {todos: [] , id: 0};
     this.deleteNote = this.deleteNote.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
+    this.incrementId = this.incrementId.bind(this);
   }
 
   deleteNote(id){
@@ -32,6 +33,24 @@ class App extends Component {
    console.log("edit from App");
 
   }
+
+  getId(){
+   
+    if (this.state.id === 0){
+
+      //this.setState({id: this.state.todos[2].id})
+    this.state.id =  this.state.todos[this.state.todos.length-1].id
+    console.log("set id")
+    console.log(this.state.id)
+    }
+    
+
+  }
+
+  incrementId(){
+
+    this.state.id++;
+  }
  handleDelete(id){
 
     console.log("Hello from App");
@@ -39,11 +58,16 @@ class App extends Component {
   }
 
   handleAdd(message){
+
+    this.getId();
+    this.incrementId();
+    console.log("Id ")
+    console.log(this.state.id)
     console.log("Hello from App");
     let msg = {
 
       userId: 1,
-      id:1,
+      id:this.state.id,
       title: message,
       completed: false
     };
@@ -73,16 +97,19 @@ class App extends Component {
       console.log(filtered)
     })
     .catch(console.log)
+
+    
   }
 
+
  render() {
-    
+
   return (
      <div  >
        
      
      <Head  addMethod={this.handleAdd}/>
-     <hr></hr>
+     <hr/>
      <Row>
       {this.state.todos.map((todo) => (
 
