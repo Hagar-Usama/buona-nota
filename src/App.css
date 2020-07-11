@@ -36,3 +36,25 @@
     transform: rotate(360deg);
   }
 }
+
+
+  .Ticket {
+  width: 100px;  /* Or whatever */
+  height: 100px; /* Or whatever */
+  margin: auto;
+  flex:1;
+
+}
+
+.Container{
+
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+flex-flow: column wrap;
+justify-content:flex-end;
+align-items: flex-end;
+align-content: flex-start;
+
+
+}

@@ -1,47 +1,53 @@
-import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function App() {
-  const [data, setData] = useState({ todos: [] });
- 
-  useEffect(async () => {
-    const result = await axios(
-      //'https://hn.algolia.com/api/v1/search?query=redux',
-     ' https://jsonplaceholder.typicode.com/todos',
-    
-    );
- 
-    setData(result.data);
-  }, []);
-  console.log(typeof(data))
+import React, { Component } from 'react';
+import {
+  Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, Button
+} from 'reactstrap';
 
+import Ticket from './ticket'
+
+const getStatus = ({status} ) => 
+(status ? "Done" : "Complete me!");
+
+
+class App extends Component {
+  state = {
+    todos: []
+  }
   
+  componentDidMount() {
+    fetch('http://jsonplaceholder.typicode.com/todos')
+    .then(result => result.json())
+    .then((data) => {
+      this.setState({ todos: data })
+      console.log(this.state.todos)
+    })
+    .catch(console.log)
+  }
+
+
+  //<Ticket title="todo.title" status='todo.completed'></Ticket>
+
+ render() {
+
   return (
+     <div className="Container" style={{display: 'flex', flexDirection: 'row'}}>
+      <div className="col-xs-12">
+      <h1>My Todos</h1>
+      {this.state.todos.map((todo) => (
 
-    <div>
-    
-     <ul>
+        <Ticket title={todo.title} status= {getStatus(todo.completed)} ></Ticket>
 
-       {data.map(item => (
-         <li key={item.id}>
-           <span> {item.title}</span>
-         </li>
-       ))}
-     </ul>
-
-
-    </div>
-    
+                
+      ))}
+      
+      </div>
+     </div>
   );
 }
- 
+
+}
+
 export default App;
-
-
-// <ul>
-//       {data.map(item => (
-//         <li key={item.id}>
-//           <span> {item.title}</span>
-//         </li>
-//       ))}
-//     </ul>
