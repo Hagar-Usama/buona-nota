@@ -2,7 +2,9 @@
 import React, { Component } from 'react';
 import { Row } from 'reactstrap';
 import Ticket from './ticket'
-
+import myNav from './myNav'
+import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
+import Head from './head'
 
 const getStatus = ({status} ) => 
 (status ? "Done" : "Complete me!");
@@ -16,6 +18,7 @@ class App extends Component {
     this.deleteNote = this.deleteNote.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleEdit = this.handleEdit.bind(this);
+    this.handleAdd = this.handleAdd.bind(this);
   }
 
   deleteNote(id){
@@ -35,6 +38,28 @@ class App extends Component {
     this.deleteNote(id)
   }
 
+  handleAdd(message){
+    console.log("Hello from App");
+    let msg = {
+
+      userId: 1,
+      id:1,
+      title: message,
+      completed: false
+    };
+
+    this.addNote(msg)
+
+  
+
+  }
+
+  addNote(taskObj){
+
+    this.setState(
+      { todos: [taskObj, ...this.state.todos] });
+
+  }
  
   componentDidMount() {
     document.title = "Buoana Nota"
@@ -53,14 +78,15 @@ class App extends Component {
  render() {
     
   return (
-     <div className="container" >
-       
+     <div  >
        
      
+     <Head  addMethod={this.handleAdd}/>
+     <hr></hr>
      <Row>
       {this.state.todos.map((todo) => (
 
-        <Ticket title={todo.title} status= {getStatus(todo.completed)} id={todo.id}  deleteMethod={this.handleDelete} editMethod={this.handleEdit}> </Ticket>
+        <Ticket title={todo.title} status= {getStatus(todo.completed)} id={todo.id}  deleteMethod={this.handleDelete} editMethod={this.handleEdit} addMethond={this.handleAdd}/>
 
                 
       ))}

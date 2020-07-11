@@ -17,7 +17,7 @@ export default class Ticket extends React.Component{
              }
     
 
-    handleDeleteClick() {
+   handleDeleteClick() {
       
       this.props.deleteMethod(this.props.id);
 
@@ -25,19 +25,22 @@ export default class Ticket extends React.Component{
 
    handleEditClick(message){
 
-    this.props.editMethod(this.props.id, message)
+      console.log("Hallo select")
+      this.props.editMethod(this.props.id, message)
+
 
    }
+
+
     
     render(){
     
      
     return(
     
-
-      <Col sm="3">
-        <Card className = "Ticket" >
-            <CardBody>
+     <Col sm="3">
+        <Card className = "Ticket" active onSelectCapture={this.handleEditClick}>
+            <CardBody >
               <CardTitle>{this.props.title}</CardTitle>
               <CardSubtitle>{this.props.status}</CardSubtitle>
               <CardSubtitle>{this.props.id}</CardSubtitle>
@@ -48,11 +51,11 @@ export default class Ticket extends React.Component{
             </CardBody>
       
       </Card>
-      &nbsp;
-      </Col>
-
-  
     
+      </Col>
+     
+      
+
      
      )
     
