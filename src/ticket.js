@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Card , CardText, CardBody,
-  CardTitle, CardSubtitle,Row, Col, Button } from 'reactstrap'
+import { Card , CardBody,
+  CardTitle, CardSubtitle, Col, Button } from 'reactstrap'
 
 
 
@@ -10,13 +10,24 @@ export default class Ticket extends React.Component{
 
     constructor(props) {
         super(props);
+        this.handleDeleteClick = this.handleDeleteClick.bind(this);
+        this.handleEditClick = this.handleEditClick.bind(this);
         console.log(props)
-        
-       
+
              }
     
-     
-    
+
+    handleDeleteClick() {
+      
+      this.props.deleteMethod(this.props.id);
+
+   }
+
+   handleEditClick(message){
+
+    this.props.editMethod(this.props.id, message)
+
+   }
     
     render(){
     
@@ -29,9 +40,11 @@ export default class Ticket extends React.Component{
             <CardBody>
               <CardTitle>{this.props.title}</CardTitle>
               <CardSubtitle>{this.props.status}</CardSubtitle>
+              <CardSubtitle>{this.props.id}</CardSubtitle>
+              <hr></hr>
               <Button  color='primary'>Edit</Button>
               &nbsp;
-              <Button color='danger'>Delete</Button>
+              <Button color='danger' onClick={this.handleDeleteClick}>Delete</Button>
             </CardBody>
       
       </Card>
