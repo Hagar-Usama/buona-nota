@@ -1,0 +1,10 @@
+#!/media/u/94e38987-1ea8-4832-8f89-c40765d3c5cf/home/ux/git/React/buona-nota/python_modules/bin/python3
+# -*- coding: utf-8 -*-
+import re
+import sys
+
+from pip._internal import main
+
+if __name__ == '__main__':
+    sys.argv[0] = re.sub(r'(-script\.pyw?|\.exe)?$', '', sys.argv[0])
+    sys.exit(main())
