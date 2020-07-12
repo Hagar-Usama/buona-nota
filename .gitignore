@@ -24,3 +24,5 @@ yarn-error.log*
 
 # python_modules
 /python_modules
+package.json
+package.txt
