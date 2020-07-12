@@ -1,5 +1,5 @@
 # Buona Nota 📒
----
+
 ![Build-Passing][1] ![React][2]
 
 [1]: https://img.shields.io/:Build-Passing-Green.svg?style=round-square
