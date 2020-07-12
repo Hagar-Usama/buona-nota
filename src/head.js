@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
+import './App.css';
 
 
 export default class Head extends React.Component{
@@ -27,8 +28,8 @@ handleMsg(message){
 updateMsg(event){
     console.log( event.target.value)
     //this.setState(this.state.message, event.target.value)
-    this.state.message = event.target.value;
-    
+    this.setState({message: event.target.value});
+
 }
 
 handleEdit(){
@@ -44,16 +45,17 @@ render(){
 
     return(
 
-        <div>
+        <div class="navbar">
 
 
-        <InputGroup>
+        <InputGroup class="navbar">
             <InputGroupAddon addonType="prepend">
               <InputGroupText>+</InputGroupText>
             </InputGroupAddon>
-            <Input placeholder="Add/Edit a Task"  onChange={this.updateMsg}/>
+            <Input placeholder="Add a Task"  onChange={this.updateMsg}/>
             <Button  color='warning' onClick={this.handleMsg}>Add</Button>
           </InputGroup>
+          
           <br />
         
             </div>

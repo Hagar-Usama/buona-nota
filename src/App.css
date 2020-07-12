@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  
 }
 
 .App-logo {
@@ -45,6 +46,8 @@
   text-align: center;
   flex:1;
   background-color: rgba(50,50,50,0.7);
+  margin-bottom: 30px;
+  
 
 }
 
@@ -79,4 +82,30 @@ align-content: flex-start;
 .ed {
 
   visibility: visible;
+}
+
+
+
+.navbar {
+  overflow: hidden;
+  background-color:rgba(50,50,50,0.1);
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  right: 0;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: #ddd;
+  color: black;
 }

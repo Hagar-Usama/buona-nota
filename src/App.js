@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { Row } from 'reactstrap';
 import Ticket from './ticket'
 import Head from './head'
-import { Button, Card, CardBody, CardText, CardGroup, CardTitle } from 'reactstrap';
 import './App.css';
 const getStatus = ({status} ) => 
 (status ? "Done" : "Complete me!");
@@ -29,10 +28,7 @@ class App extends Component {
   }
 
   handleEdit(id, message){
-   console.log("edit from App");
-   console.log(id, message)
    let elementsIndex = (this.state.todos.findIndex(element => element.id === id ))
-   console.log(elementsIndex)
    let newArray = [...this.state.todos]
    newArray[elementsIndex] = {...newArray[elementsIndex], title: message}
     
@@ -45,16 +41,14 @@ class App extends Component {
   }
 
  
-
-
   getId(){
    
     if (this.state.id === 0){
 
       //this.setState({id: this.state.todos[2].id})
-    this.state.id =  this.state.todos[this.state.todos.length-1].id
-    console.log("set id")
-    console.log(this.state.id)
+    //this.state.id =  this.state.todos[this.state.todos.length-1].id
+    this.setState({id: this.state.todos[this.state.todos.length-1].id});
+
     }
     
 
@@ -62,11 +56,14 @@ class App extends Component {
 
   incrementId(){
 
-    this.state.id++;
+    //this.state.id++;
+    this.setState({id: this.state.id + 1});
+    
+    
   }
  handleDelete(id){
 
-    console.log("Hello from App");
+    
     this.deleteNote(id)
   }
 
@@ -104,10 +101,6 @@ class App extends Component {
     .then(result => result.json())
     .then((data) => {
       this.setState({ todos: data })
-      console.log("todos in mount")
-      console.log(this.state.todos)
-      let filtered = this.state.todos.filter(it => it.id > 150);
-      console.log(filtered)
     })
     .catch(console.log)
 
@@ -118,17 +111,16 @@ class App extends Component {
  render() {
 
   return (
-     <div  >
-       
-     
-     <Head  addMethod={this.handleAdd}/>
+     <div className= "App">
+      
+     <Head className="navbar" addMethod={this.handleAdd}/>
      <hr/>
     
      <Row>
       {this.state.todos.map((todo) => (
 
         <Ticket title={todo.title} status= {getStatus(todo.completed)} id={todo.id}  deleteMethod={this.handleDelete} editMethod={this.handleEdit} addMethond={this.handleAdd}/>
-
+        
                 
       ))}
       

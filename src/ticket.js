@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './App.css';
 
 import { Card , CardBody,
-  CardTitle, CardSubtitle, Col, Button, Input } from 'reactstrap'
+  CardSubtitle, Col, Button, Input } from 'reactstrap'
 
 
 
@@ -15,7 +15,7 @@ export default class Ticket extends React.Component{
         this.handleEditClick = this.handleEditClick.bind(this);
         this.updateMsg = this.updateMsg.bind(this);
         this.closeClick = this.closeClick.bind(this);
-        this.state = {message:"hoi", disabled: false}
+        this.state = {message:"", disabled: true}
         console.log(props)
 
              }
@@ -29,7 +29,7 @@ export default class Ticket extends React.Component{
 
    handleEditClick(){
 
-    this.setState({disabled: !this.state.disabled})
+    this.setState({disabled: !this.state.disabled});
     if (this.state.disabled === true){
       this.setState({disabled:false})
 
@@ -45,7 +45,9 @@ export default class Ticket extends React.Component{
 
    updateMsg(event){
 
-    this.state.message = event.target.value;
+    this.setState({message: event.target.value});
+
+    //this.state.message = event.target.value;
    }
 
    closeClick(){
@@ -58,7 +60,7 @@ export default class Ticket extends React.Component{
      
     return(
     
-     <Col sm="3">
+     <Col sm="4">
         <Card className = "Ticket" active >
             <CardBody >
              
@@ -74,12 +76,11 @@ export default class Ticket extends React.Component{
           cols={5} placeholder={this.props.title}  disabled = {(this.state.disabled)? "disabled" : ""} onChange={this.updateMsg}/>
               <hr/>
 
-              <Button  color='primary' onClick={this.handleEditClick} >Edit</Button>
+              <Button  color='primary'onClick={this.handleEditClick} >Edit</Button>
               
               &nbsp;
-              <Button color='danger' onClick={this.handleDeleteClick}>Delete</Button>
-               &nbsp;
-
+              <Button color='danger'  onClick={this.handleDeleteClick}>Delete</Button>
+          
       
             </CardBody>
       
