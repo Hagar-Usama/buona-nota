@@ -22,7 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# python_modules
-/python_modules
-package.json
-package.txt
+/python_modules/*
+/backend/*
+/api/*
+/venv/*
