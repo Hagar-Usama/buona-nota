@@ -1,9 +1,6 @@
 import React from 'react';
 import { Button, InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 
-import { Form } from 'reactstrap'
-import { AvForm, AvField } from 'availity-reactstrap-validation';
-
 
 export default class Head extends React.Component{
 
@@ -15,6 +12,7 @@ export default class Head extends React.Component{
         console.log(props)
         this.handleMsg = this.handleMsg.bind(this)
         this.updateMsg = this.updateMsg.bind(this)
+        this.handleEdit = this.handleEdit.bind(this)
 
     }
 
@@ -32,6 +30,15 @@ updateMsg(event){
     this.state.message = event.target.value;
     
 }
+
+handleEdit(){
+    console.log("handle Edit")
+    
+    //document.getElementById("ed").style.visibility = vis
+    //console.log("handle Edit")
+
+}
+
 
 render(){
 

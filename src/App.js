@@ -2,10 +2,9 @@
 import React, { Component } from 'react';
 import { Row } from 'reactstrap';
 import Ticket from './ticket'
-import myNav from './myNav'
-import { InputGroup, InputGroupAddon, InputGroupText, Input } from 'reactstrap';
 import Head from './head'
-
+import { Button, Card, CardBody, CardText, CardGroup, CardTitle } from 'reactstrap';
+import './App.css';
 const getStatus = ({status} ) => 
 (status ? "Done" : "Complete me!");
 
@@ -31,8 +30,22 @@ class App extends Component {
 
   handleEdit(id, message){
    console.log("edit from App");
+   console.log(id, message)
+   let elementsIndex = (this.state.todos.findIndex(element => element.id === id ))
+   console.log(elementsIndex)
+   let newArray = [...this.state.todos]
+   newArray[elementsIndex] = {...newArray[elementsIndex], title: message}
+    
+    this.setState({
+      todos: newArray,
+      });
+   
+
 
   }
+
+ 
+
 
   getId(){
    
@@ -110,6 +123,7 @@ class App extends Component {
      
      <Head  addMethod={this.handleAdd}/>
      <hr/>
+    
      <Row>
       {this.state.todos.map((todo) => (
 
