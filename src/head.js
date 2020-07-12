@@ -26,7 +26,7 @@ handleMsg(message){
 }
 
 updateMsg(event){
-    console.log( event.target.value)
+    //console.log( event.target.value)
     //this.setState(this.state.message, event.target.value)
     this.setState({message: event.target.value});
 
@@ -45,10 +45,10 @@ render(){
 
     return(
 
-        <div class="navbar">
+        <div className="navbar">
 
 
-        <InputGroup class="navbar">
+        <InputGroup className="navbar">
             <InputGroupAddon addonType="prepend">
               <InputGroupText>+</InputGroupText>
             </InputGroupAddon>

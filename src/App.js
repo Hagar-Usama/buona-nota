@@ -59,7 +59,6 @@ class App extends Component {
     //this.state.id++;
     this.setState({id: this.state.id + 1});
     
-    
   }
  handleDelete(id){
 
@@ -119,7 +118,7 @@ class App extends Component {
      <Row>
       {this.state.todos.map((todo) => (
 
-        <Ticket title={todo.title} status= {getStatus(todo.completed)} id={todo.id}  deleteMethod={this.handleDelete} editMethod={this.handleEdit} addMethond={this.handleAdd}/>
+        <Ticket  title={todo.title} status= {getStatus(todo.completed)} id={todo.id}  deleteMethod={this.handleDelete} editMethod={this.handleEdit} addMethond={this.handleAdd}/>
         
                 
       ))}

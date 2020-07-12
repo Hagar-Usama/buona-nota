@@ -28,15 +28,15 @@ export default class Ticket extends React.Component{
    }
 
    handleEditClick(){
-
+    this.setState({message: this.props.title})
     this.setState({disabled: !this.state.disabled});
     if (this.state.disabled === true){
       this.setState({disabled:false})
 
     }else{
-
+      
       this.props.editMethod(this.props.id, this.state.message)
-
+      console.log("task edited")
 
     }
 
@@ -61,8 +61,10 @@ export default class Ticket extends React.Component{
     return(
     
      <Col sm="4">
-        <Card className = "Ticket" active >
-            <CardBody >
+       
+       &nbsp;
+        <Card className="Ticket" >
+            <CardBody  >
              
               <Button close aria-label="Cancel" onClick={this.closeClick}>
                 
@@ -87,7 +89,8 @@ export default class Ticket extends React.Component{
       </Card>
 
 
-    
+    <hr/>
+       &nbsp;
       </Col>
      
       
