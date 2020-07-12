@@ -4,6 +4,8 @@ import { Row } from 'reactstrap';
 import Ticket from './ticket'
 import Head from './head'
 import './App.css';
+import axios from 'axios';
+
 const getStatus = ({status} ) => 
 (status ? "Done" : "Complete me!");
 
@@ -96,22 +98,34 @@ class App extends Component {
  
   componentDidMount() {
     document.title = "Buoana Nota"
-    fetch('http://jsonplaceholder.typicode.com/todos')
-    .then(result => result.json())
-    .then((data) => {
-      this.setState({ todos: data })
-    })
-    .catch(console.log)
+    
+    // fetch('http://jsonplaceholder.typicode.com/todos')
+    // .then(result => result.json())
+    // .then((data) => {
+    //   this.setState({ todos: data })
+    // })
+    // .catch(console.log)
 
     
-  }
 
+  const url = 'http://jsonplaceholder.typicode.com/todos'
+  //axios.get(url).then(response => console.log(response));
+ 
 
- render() {
+  axios.get(url).then((repos) => {
+    const data = repos.data;
+   
+    this.setState({ todos: data })
+  });
+   }
+   
+   
+   render() {
 
   return (
      <div className= "App">
       
+      <h1> Getting started with React testing library</h1>
      <Head className="navbar" addMethod={this.handleAdd}/>
      <hr/>
     
