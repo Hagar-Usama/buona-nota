@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App component App: renders correctly 1`] = `
+<div
+  className="App"
+>
+  <container
+    className="head"
+  >
+    <div
+      className="navbar"
+    >
+      <h1
+        className="head"
+      >
+        ToDo or not ToDo!
+      </h1>
+      <div
+        className="navbar input-group"
+      >
+        <div
+          className="input-group-prepend"
+        >
+          <span
+            className="input-group-text"
+          >
+            +
+          </span>
+        </div>
+        <input
+          className="form-control"
+          onChange={[Function]}
+          placeholder="Add a Task"
+          type="text"
+        />
+        <button
+          aria-label={null}
+          className="btn btn-warning"
+          onClick={[Function]}
+          type="button"
+        >
+          Add
+        </button>
+      </div>
+      <br />
+    </div>
+    <hr />
+  </container>
+  <div
+    className="row"
+  />
+</div>
+`;
+
+exports[`Ticket component Ticket: renders correctly 1`] = `
+<div
+  className="col-sm-4"
+>
+   
+  <div
+    className="Ticket card"
+  >
+    <div
+      className="card-body"
+    >
+      <button
+        aria-label="Cancel"
+        className="close"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          aria-hidden={true}
+        >
+          –
+        </span>
+      </button>
+      <div
+        active={true}
+        className="card-subtitle"
+      />
+      <hr />
+      <textarea
+        className="ed form-control"
+        cols={5}
+        disabled="disabled"
+        onChange={[Function]}
+        rows={5}
+      />
+      <hr />
+      <button
+        aria-label={null}
+        className="btn btn-primary"
+        onClick={[Function]}
+        type="button"
+      >
+        Edit
+      </button>
+       
+      <button
+        aria-label={null}
+        className="btn btn-danger"
+        onClick={[Function]}
+        type="button"
+      >
+        Delete
+      </button>
+    </div>
+  </div>
+  <hr />
+   
+</div>
+`;

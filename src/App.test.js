@@ -1,16 +1,45 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+
+import renderer from 'react-test-renderer';
+import Ticket from './ticket';
+
+
+import Adapter from 'enzyme-adapter-react-16';
+import { shallow, configure } from 'enzyme';
+
 import App from './App';
+jest.mock('axios');
 
-// test('renders learn react link', () => {
-//   const { getByText } = render(<App />);
-//   const linkElement = getByText(/learn react/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
+configure({adapter: new Adapter()});
+//Enzyme.configure({ adapter: new Adapter() })
 
-describe("<App />", () => {
-  it("Renders <App /> component correctly", () => {
-    const { getByText } = render(<App />);
-    expect(getByText(/Getting started with React testing library/i)).toBeInTheDocument();
+describe('App component', () => {
+  it('App: renders correctly', () => {
+    const tree = renderer.create(<App />);
+    expect(tree).toMatchSnapshot();
   });
+
+  it('test state id', () => {
+    const wrapper = shallow(<App/>);
+    expect(wrapper.instance().state.id).toBe(1);
+  });
+
 });
+
+
+describe('Ticket component', () => {
+  it('Ticket: renders correctly', () => {
+    const tree = renderer.create(<Ticket />);
+    expect(tree).toMatchSnapshot();
+  });
+
+
+});
+
+
+test("fake", () => {
+
+  expect(1 + 1).toBe(2);
+
+})
+
