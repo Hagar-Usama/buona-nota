@@ -21,7 +21,18 @@ describe('App component', () => {
 
   it('test state id', () => {
     const wrapper = shallow(<App/>);
-    expect(wrapper.instance().state.id).toBe(1);
+    expect(wrapper.instance().state.id).toBe(0);
+  });
+
+  it('test todos', () => {
+    const wrapper = shallow(<App/>);
+    const instance = wrapper.instance();
+    instance.componentDidMount();
+    instance.fetchData();
+    instance.incrementId();
+    const data = instance.state
+    console.log({data})
+    
   });
 
 });

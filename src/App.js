@@ -21,6 +21,7 @@ class App extends Component {
     this.handleEdit = this.handleEdit.bind(this);
     this.handleAdd = this.handleAdd.bind(this);
     this.incrementId = this.incrementId.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
   }
 
   deleteNote(id) {
@@ -44,12 +45,12 @@ class App extends Component {
   }
 
 
+
   getId() {
 
     if (this.state.id === 0) {
 
-      //this.setState({id: this.state.todos[2].id})
-      //this.state.id =  this.state.todos[this.state.todos.length-1].id
+      
       this.setState({ id: this.state.todos[this.state.todos.length - 1].id });
 
     }
@@ -97,22 +98,12 @@ class App extends Component {
 
   }
 
+
   componentDidMount() {
     document.title = "Buoana Nota"
 
-    // fetch('http://jsonplaceholder.typicode.com/todos')
-    // .then(result => result.json())
-    // .then((data) => {
-    //   this.setState({ todos: data })
-    // })
-    // .catch(console.log)
-
-
 
     const url = 'http://jsonplaceholder.typicode.com/todos'
-    //axios.get(url).then(response => console.log(response));
-
-
     axios.get(url).then((repos) => {
       const data = repos.data;
 
@@ -120,7 +111,11 @@ class App extends Component {
     });
   }
 
+  fetchData(){
+    this.componentDidMount();
 
+
+  }
   render() {
 
     return (
