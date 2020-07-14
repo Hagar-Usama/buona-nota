@@ -4,6 +4,8 @@
 /node_modules
 /.pnp
 .pnp.js
+venv
+
 
 # testing
 /coverage
@@ -18,6 +20,7 @@
 .env.test.local
 .env.production.local
 
+__pychace__
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
